@@ -9,7 +9,7 @@ COPY . ./
 RUN dotnet publish --no-restore -c Release -o out
 
 # 2. Runtime aþamasý
-FROM mcr.microsoft.com/dotnet/aspnet:8.0  # "core" kelimesini kaldýrdýk!
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 COPY --from=build-env /app/out .
 ENTRYPOINT ["dotnet", "Api.dll"]
